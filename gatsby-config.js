@@ -6,7 +6,6 @@
 
 module.exports = {
   /* Your site config here */
-  pathPrefix: '/machine-ventures.vercel.app',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
