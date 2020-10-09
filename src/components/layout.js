@@ -7,6 +7,7 @@ import { Text } from "./typography"
 import { DataProducts } from "../pages/home/_product-data"
 import Image from "./image"
 import Flex from "./flex"
+import GlobalStyle from "../global-style"
 
 const Main = styled.main`
   padding-top: 2rem;
@@ -14,10 +15,11 @@ const Main = styled.main`
   background: white;
   height: 100%;
   position: relative;
+  overflow: hidden;
 `
 const FeatureWrapper = styled.div`
   position: relative;
-  height: 220px;
+  height: 240px;
 `
 const Feature = styled.div`
   position: absolute;
@@ -31,16 +33,20 @@ const Feature = styled.div`
   box-shadow: 0px 5px 4px #e2e2e2;
   margin-bottom: 10px;
 `
+const Container = styled(Flex)`
+  border-top: 1px solid #e2e2ec;
+`
 const Layout = ({ children }) => {
   return (
     <>
+      <GlobalStyle />
       <FeatureWrapper>
         <HomeHeader></HomeHeader>
         <Feature>
           <Text size="20px" weight="bold">
             Featured
           </Text>
-          <Flex>
+          <Container mt="10px" pt="15px">
             {DataProducts.map(
               (product, idx) =>
                 product.is_featured && (
@@ -62,12 +68,11 @@ const Layout = ({ children }) => {
                   </Flex>
                 )
             )}
-          </Flex>
+          </Container>
         </Feature>
       </FeatureWrapper>
-
-      <Nav />
       <Main>{children}</Main>
+      <Nav />
     </>
   )
 }

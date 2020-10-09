@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react"
 import PropTypes from "prop-types"
-import Swiper from "react-id-swiper"
+import React from "react"
 import { Helmet } from "react-helmet"
+import Swiper from "react-id-swiper"
 
 const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 
@@ -11,9 +11,10 @@ Item.propTypes = {
 const params = {
   lazy: true,
   slidesPerView: 2,
-  spaceBetween: 80,
+  spaceBetween: 90,
   loop: false,
   height: "100%",
+  overflow: "initial",
 }
 const Carousel = ({ children }) => {
   return (
@@ -21,6 +22,7 @@ const Carousel = ({ children }) => {
       <Helmet>
         <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
       </Helmet>
+
       <Swiper {...params}>{children}</Swiper>
     </>
   )

@@ -13,7 +13,7 @@ const Section = styled.section`
 export default function Products() {
   return (
     <Section>
-      <Flex m="auto">
+      <Flex m="0 auto">
         <CssGrid
           columns="repeat(5, 30px)"
           rows="repeat(2, auto)"
@@ -22,7 +22,7 @@ export default function Products() {
           justify="center"
           align="center"
           tablet_columns="repeat(3, 10px)"
-          mobile_column_gap="140px"
+          mobile_column_gap="130px"
           mobile_columns="repeat(3, 10px)"
         >
           {DataProducts.map((product, idx) => (
