@@ -1,44 +1,44 @@
 import React from "react"
 import styled from "styled-components"
-import Image from "../../components/image"
+import CssGrid from "../../components/css-grid"
 import Flex from "../../components/flex"
+import Image from "../../components/image"
+import { Text } from "../../components/typography"
+import { DataProducts } from "./_product-data"
+
+const Section = styled.section`
+  width: 100%;
+`
 
 export default function Products() {
   return (
-    <Flex width="400px" fd="column">
-      <Flex>
-        <Image img_name="2-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="3-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="4-icon.png" width="100px" height="100px"></Image>
+    <Section>
+      <Flex m="auto">
+        <CssGrid
+          columns="repeat(5, 30px)"
+          rows="repeat(2, auto)"
+          row_gap="40px"
+          column_gap="200px"
+          justify="center"
+          align="center"
+          tablet_columns="repeat(3, 10px)"
+          mobile_column_gap="140px"
+          mobile_columns="repeat(3, 10px)"
+        >
+          {DataProducts.map((product, idx) => (
+            <Flex key={idx} fd="column" width="200px" jc="center" ai="center">
+              <Image
+                img_name={product.image}
+                width="70px"
+                height="70px"
+              ></Image>
+              <Text align="center" size="15px">
+                {product.title}
+              </Text>
+            </Flex>
+          ))}
+        </CssGrid>
       </Flex>
-      <Flex>
-        <Image img_name="6-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="9-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="9-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-      <Flex>
-        <Image img_name="10-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="12-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="13-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-      <Flex>
-        <Image img_name="14-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="15-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="16-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-      <Flex>
-        <Image img_name="17-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="23-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="24-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-      <Flex>
-        <Image img_name="25-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="26-icon.png" width="100px" height="100px"></Image>
-        <Image img_name="27-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-      <Flex>
-        <Image img_name="28-icon.png" width="100px" height="100px"></Image>
-      </Flex>
-    </Flex>
+    </Section>
   )
 }
